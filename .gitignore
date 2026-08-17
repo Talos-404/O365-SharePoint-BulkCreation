@@ -1,0 +1,35 @@
+# PowerShell logs
+*.log
+
+# Local configuration files
+*.local.ps1
+*.local.json
+config.local.ps1
+config.local.json
+
+# Credentials and secrets
+*.secret
+*.key
+*.pem
+*.pfx
+*.p12
+
+# CSV files containing potentially sensitive data
+*.csv
+
+# Public example data
+!examples/sites-example.csv
+
+# Local output
+/output/
+/results/
+
+# Temporary files
+*.tmp
+*.bak
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
