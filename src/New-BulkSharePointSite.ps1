@@ -214,9 +214,17 @@ foreach ($site in $sites)
         }
         catch
         {
-            # Get-SPOSite throws an error when the site does not exist.
-            # In that case, continue with the creation process.
-            $existingSite = $null
+            # A missing site is expected during the creation process.
+            # Other errors must stop processing instead of being interpreted
+            # as a missing site.
+            if ($_.Exception.Message -match "does not exist|cannot be found|not found")
+            {
+                $existingSite = $null
+            }
+            else
+            {
+                throw
+            }
         }
 
         if (-not $existingSite)
